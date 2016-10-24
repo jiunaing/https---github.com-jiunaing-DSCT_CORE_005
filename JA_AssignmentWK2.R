@@ -132,7 +132,7 @@ SGPdf <- data.frame(x, diversionFund$SGP, reliablePolice$SGP, irregularPaym$SGP)
 SGPdf2 <- melt(data = SGPdf, id.vars = "x")
 SGPplot <-ggplot(data = SGPdf2, aes(x = x, y = value, colour = variable)) + geom_line() +
   xlab("Year") +ylab(" 1-7 (best)") +ggtitle("SGP")
-a
+
 THAdf <- data.frame(x, diversionFund$THA, reliablePolice$THA, irregularPaym$THA)
 THAdf2 <- melt(data = THAdf, id.vars = "x")
 THAplot <-ggplot(data = THAdf2, aes(x = x, y = value, colour = variable)) + geom_line() +
@@ -157,12 +157,13 @@ gdpPerCap  <-gcrByValue[gcrByValue$Series.code=="0.03", -c(2,3,4) ]
 
 xx  <- as.numeric(substr(inflation$Edition,6,9))
 
+## Need to change to different countries data set to plot the graph at below 4 lines
 yy1 <-gdpPerCap$VNM
 yy2 <-soundBank$VNM
 yy3 <-inflation$VNM
 ccc <-"VNM"
 
-##
+
 par(mar=c(5, 12, 4, 4) + 0.1)
 
 plot(xx, yy1, axes=F, ylim=c(0,max(yy1)), xlab="", ylab="",type="l",col="black", main="",xlim=c(2009,2014))
